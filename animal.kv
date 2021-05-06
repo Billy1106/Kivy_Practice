@@ -1,0 +1,54 @@
+#ImageWidget呼び出し
+
+ImageWidget:
+
+#ImageWidget呼び出し
+<ImageWidget>:
+    #プログラム内のConfig.setに加えて色などを追加
+    canvas.before:
+        Color:
+            rgba: 0.6,0.6,0.6,1
+        Rectangle:#デフォルトを持ってくる
+            pos: self.pos
+            size: self.size
+    #構成部分
+    BoxLayout:
+        #ImageとBoxyLayoutを縦に並べる
+        orientation: 'vertical'
+        size: root.size
+
+        Image:
+            #rootは一番最初のwidget(ImageWidget内)のコードを読み込む
+            #selfだった場合Image内のコード
+            source: root.img_source
+            
+        #ボタンのレイアウト
+        BoxLayout:
+            #size_hint_yは上の要素のなん%か
+            size_hint_y:0.3
+            #各要素の余白
+            padding: 20,10,20,10
+            Button:
+                id: b1
+                text: "Dog button"
+                front_size:30
+                #ボタンがプレスされた場合
+                on_press:root.buttonDog()
+            Button:
+                id: b2
+                text: "Cat button"
+                front_size:30
+                #ボタンがプレスされた場合
+                on_press:root.buttonCat()
+            Button:
+                id: b3
+                text: "Random button"
+                front_size:30
+                #ボタンがプレスされた場合
+                on_press:root.buttonRandom()
+
+
+
+        
+         
+
